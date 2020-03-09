@@ -1,6 +1,6 @@
 # ObjectCompareUtil 对象比较工具
-C# .NET Object Compare Util
-This util can get the changes like:
+## C# .NET Object Compare Util
+### This util can get the changes like:
 ```powershell
 主键由【1】更新为【2】;
 姓名由【张三】更新为【李四】;
