@@ -1,4 +1,4 @@
-# ObjectCompareUtil
+# ObjectCompareUtil 对象比较工具
 C# .NET Object Compare Util
 This util can get the changes like:
 ```powershell
