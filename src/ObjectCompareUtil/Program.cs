@@ -25,8 +25,8 @@ namespace ObjectCompareUtil
             };
             try
             {
-                var diffSummary = CompareUtil.GetDiffSummary(oldObj, newObj);
-                Console.WriteLine(diffSummary);
+                var diffText = CompareUtil.GetDiffText(oldObj, newObj);
+                Console.WriteLine(diffText);
                 Console.ReadKey();
             }
             catch (Exception ex)
