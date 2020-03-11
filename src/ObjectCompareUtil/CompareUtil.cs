@@ -46,6 +46,14 @@ namespace ObjectCompareUtil
             try
             {
                 var type = typeof(T);
+                if (oldObj == null)
+                {
+                    oldObj = (T)Activator.CreateInstance(type);
+                }
+                if (newObj == null)
+                {
+                    newObj = (T)Activator.CreateInstance(type);
+                }
                 var properties = type.GetProperties();
                 if (properties == null || !properties.Any())
                 {
@@ -66,7 +74,6 @@ namespace ObjectCompareUtil
                         {
                             var oldValue = property.GetValue(oldObj);
                             var newValue = property.GetValue(newObj);
-                            var propertyType = property.GetType();
                             string key = nameArgument.Value.TypedValue.ToString().Trim('"');
                             string value = string.Empty;
                             if (IsCanCompare(property.PropertyType))
@@ -91,7 +98,7 @@ namespace ObjectCompareUtil
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
             return diffs;
