@@ -105,35 +105,35 @@ namespace ObjectCompareUtil
         }
 
         /// <summary>
-        /// 获取新旧对象差异摘要文本
+        /// 获取新旧对象差异文本
         /// </summary>
         /// <typeparam name="T">对象类型（可省略）</typeparam>
         /// <param name="oldObj">原对象</param>
         /// <param name="newObj">新对象</param>
         /// <returns></returns>
-        public static string GetDiffSummary<T>(T oldObj, T newObj)
+        public static string GetDiffText<T>(T oldObj, T newObj)
         {
-            var diffSummary = new StringBuilder();
+            var diffText = new StringBuilder();
             var diffs = GetDiffs(oldObj, newObj);
             foreach (var item in diffs)
             {
-                diffSummary.Append($"{item.Key}{item.Value};\n");
+                diffText.Append($"{item.Key}{item.Value};\n");
             }
-            return diffSummary.ToString();
+            return diffText.ToString();
         }
 
         /// <summary>
-        /// 获取新旧对象差异摘要文本
+        /// 获取新旧对象差异文本
         /// </summary>
         /// <typeparam name="T">Json对象类型（不可省略）</typeparam>
         /// <param name="oldJson">原Json</param>
         /// <param name="oldJson">新Json</param>
         /// <returns></returns>
-        public static string GetDiffSummary<T>(string oldJson, string newJson)
+        public static string GetDiffText<T>(string oldJson, string newJson)
         {
             var oldObj = JsonConvert.DeserializeObject<T>(oldJson);
             var newObj = JsonConvert.DeserializeObject<T>(newJson);
-            return GetDiffSummary<T>(oldObj, newObj);
+            return GetDiffText<T>(oldObj, newObj);
         }
     }
 
